@@ -24,3 +24,8 @@
 .current-city ul li {
     list-style: none;
 }
+.city-date {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
