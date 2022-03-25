@@ -19,13 +19,19 @@
 .current-city {
     width: 100%;
     padding-left: 10px;
-    border: .5px solid black;
 }
 .current-city ul li {
     list-style: none;
+    padding-left: 0px;
 }
 .city-date {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
+}
+.fiveDayClass {
+    background-color: rgb(29, 29, 77);
+    color: white;
+    text-align: left;
+    padding-left: 0px;
 }
