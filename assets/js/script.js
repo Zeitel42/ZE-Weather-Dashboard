@@ -120,10 +120,11 @@ var fiveDay = function () {
 var previousSearches = function () {
 
     var getSearches = JSON.parse(localStorage.getItem("searches")) || [];
-    getSearches.push(userInput.value);
-
+    if(userInput.value != ""){
+        getSearches.push(userInput.value);
+    }
     var saveSearches = localStorage.setItem("searches", JSON.stringify(getSearches));
-    // previous.innerHTML = "";
+    previous.innerHTML = "";
 
     for (var i = 0; i < getSearches.length; i++) {
 
@@ -142,7 +143,7 @@ function searchHistory(e) {
     preSearch = button.getAttribute("cityName");
     userInput.value = preSearch;
 
-    console.log(preSearch);
+    // console.log(preSearch);
 
     var userInputEl = preSearch;
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userInputEl + "&units=imperial&APPID=35d606b18114e6c6cd6fbbc187422a0a"
@@ -158,17 +159,9 @@ function searchHistory(e) {
     })
 }
 
-
-
-// $(previousBtnEl).click(function(){
-//     // var newSearch = $(previousBtnEl).attr("cityName");
-//     console.log("this button worked");
-// })
-
-
 document.onload = previousSearches();
 
 // getWeather();
-// 35d606b18114e6c6cd6fbbc187422a0a
+// appid=35d606b18114e6c6cd6fbbc187422a0a
 searchBtn.addEventListener("click", getLonLat);
 previous.addEventListener("click", searchHistory);
