@@ -15,6 +15,6 @@
 
 https://zeitel42.github.io/ZE-Weather-Dashboard/
 
-<img src="./assets/images/weather-dashboard-scrnsht">
+<img src="./assets/images/weather-dashboard-scrnsht.png">
 
 ## Contributions made by Zeitel42
