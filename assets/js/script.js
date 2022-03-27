@@ -22,6 +22,12 @@ var preSearch;
 var todayDate = new Date().toLocaleDateString('en-us', { year: "numeric", month: "numeric", day: "numeric" });
 var today = todayDate;
 
+// function to create elements
+var createItem = function (element, className) {
+    var newItem = document.createElement(element);
+    newItem.setAttribute("class", className);
+    return newItem;
+}
 // function call api to get lon lat coord
 var getLonLat = function (event) {
     event.preventDefault();
@@ -54,7 +60,7 @@ var getWeather = function () {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                // console.log(data.daily);
+                console.log(data.daily);
                 daily = data.daily;
                 var icon = data.current.weather[0]["icon"];
                 var iconUrl = "https://openweathermap.org/img/w/" + icon + ".png";
@@ -64,7 +70,19 @@ var getWeather = function () {
                 temp.innerHTML = "Temp: " + Math.round(data.current.temp) + "\u00B0" + "F";
                 wind.innerHTML = "Wind: " + Math.round(data.current.wind_speed) + "mph";
                 humidity.innerHTML = "Humidity: " + Math.round(data.current.humidity) + "%";
-                uvi.innerHTML = "UV index: " + data.current.uvi;
+                uvi.innerHTML = "UV Index: ";
+                var uviCurrent = createItem("span", "uvi-current");
+                uviCurrent.innerHTML = data.current.uvi;
+                uvi.appendChild(uviCurrent);
+                    if(data.current.uvi <= 2){
+                        uviCurrent.className = "uvi-good";
+                    }else if(data.current.uvi > 2 && data.current.uvi <= 5){
+                        uviCurrent.className = "uvi-moderate";
+                    }else if(data.current.uvi > 5 && data.current.uvi < 7){
+                        uviCurrent.className = "uvi-high";
+                    }else{
+                        uviCurrent.className = "uvi-very-high";
+                    }
                 userInput.value = "";
 
                 fiveDay();
@@ -72,12 +90,7 @@ var getWeather = function () {
         }
     })
 };
-// function to create elements
-var createItem = function (element, className) {
-    var newItem = document.createElement(element);
-    newItem.setAttribute("class", className);
-    return newItem;
-}
+
 //function to display five day forecast
 var fiveDay = function () {
     fiveDayContainer.innerHTML = "";
@@ -92,7 +105,7 @@ var fiveDay = function () {
         var iconUrl = "https://openweathermap.org/img/wn/" + icon + ".png";
 
         // create elements
-        var divEl = createItem("div", "divCard card fiveDayClass");
+        var divEl = createItem("div", "col-xs divCard fiveDayClass");
         var dayDate = createItem("h5", "dayDate");
         dayDate.innerHTML = forecastDate;
         var iconImg = createItem("img", "iconImg");
@@ -136,7 +149,7 @@ var previousSearches = function () {
 
     }
 };
-
+//  function to get previous city search name and rerun
 function searchHistory(e) {
 
     var button = e.target;

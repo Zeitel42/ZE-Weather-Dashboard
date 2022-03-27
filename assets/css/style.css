@@ -4,6 +4,8 @@
     color: white;
     text-align: center;
 }
+
+/* previous search buttons  */
 .previous-searches{
     width: 100%;
     border-top: .5px solid black;
@@ -14,12 +16,16 @@
     width: 100%;
     margin: 2px;
 }
+
+/* Search  */
 .btn {
     width: 100%;
 }
 .card {
     margin: 5px;
 }
+
+/* current city card */
 .current-city {
     width: 100%;
     padding-left: 10px;
@@ -33,9 +39,34 @@
     justify-content: flex-start;
     width: 100%;
 }
+
+/* 5-day forecast */
 .fiveDayClass {
     background-color: rgb(29, 29, 77);
     color: white;
-    text-align: left;
-    padding-left: 0px;
+    padding: 5px 15px 15px 2px;
+    margin: 0 0 10px 10px;
+}
+.row {
+  margin-left: 10px;
+}
+
+/* color code for uvi */
+.uvi-good {
+    background-color: green;
+    border-radius: 10%;
+}
+
+.uvi-moderate {
+    background-color: yellow;
+    border-radius: 10%;
+}
+.uvi-high {
+    background-color: orange;
+    border-radius: 10%;
+}
+
+.uvi-very-high {
+    background-color: red;
+    border-radius: 10%;
 }

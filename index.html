@@ -15,9 +15,12 @@
     <header>
         <h1 class="header-title">Weather Dashboard</h1>
     </header>
+    <!-- main  -->
     <main class="row">
-        <div class="col-3 card search-form">
-            <div>
+
+    <!-- Search card with form input -->
+        <div class="card search-form">
+            <div class="col-12">
                 <h2>Search for a City:</h2>
                 <form>
                     <label for="input">
@@ -25,16 +28,17 @@
                     </label>
                     <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
                 </form>
+                <div class="card previous-searches">
+                    <!-- <button class="btn btn-secondary"></button> -->
+                </div>
             </div>
-            <div class="previous-searches">
-                <!-- <button class="btn btn-secondary"></button> -->
-            </div>
+            
         </div>
         <div class="col-8 display-city">
             <div>
                 <div class="current-city card">
                     <div class="city-date">
-                        <h2 id="name">Atlanta 3/20/22</h2>
+                        <h2 id="name"></h2>
                         <img id="currentIcon">
                     </div>
                     <ul>
@@ -44,8 +48,8 @@
                         <li id="uvi"></li>
                     </ul>
                 </div>
-                <h3>5 day forcast</h3>
-                <div class="row fiveDayContainer">
+                <h3>5-day forecast</h3>
+                <div class="col-xsm row fiveDayContainer">
                     <!-- 5 day forcast here created in js -->
                 </div>
             </div>
