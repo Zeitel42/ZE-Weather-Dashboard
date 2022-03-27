@@ -13,6 +13,8 @@
 
 ## Website
 
-tobedetermined.com
+https://zeitel42.github.io/ZE-Weather-Dashboard/
+
+<img src="./assets/images/weather-dashboard-scrnsht">
 
 ## Contributions made by Zeitel42
