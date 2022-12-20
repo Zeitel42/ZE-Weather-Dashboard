@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>ZE Weather-Dashboard</title>
 </head>
+
 <body>
     <header>
         <h1 class="header-title">Weather Dashboard</h1>
@@ -18,13 +17,13 @@
     <!-- main  -->
     <main class="row">
 
-    <!-- Search card with form input -->
+        <!-- Search card with form input -->
         <div class="card search-form">
             <div class="col-12">
                 <h2>Search for a City:</h2>
                 <form>
                     <label for="input">
-                        <input type="text" id="userInput" placeholder="Raleigh">
+                        <input type="text" id="userInput" value="Raleigh">
                     </label>
                     <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
                 </form>
@@ -32,7 +31,7 @@
                     <!-- <button class="btn btn-secondary"></button> -->
                 </div>
             </div>
-            
+
         </div>
         <div class="col-8 display-city">
             <div>
@@ -59,4 +58,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
