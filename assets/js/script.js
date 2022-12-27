@@ -153,7 +153,7 @@ var previousSearches = function () {
     localStorage.setItem("searches", JSON.stringify(getSearches));
   };
   var getSearches = JSON.parse(localStorage.getItem("searches")) || [];
-  getSearches = getSearches.slice(0, 5);
+  // getSearches = getSearches.slice(0, 5);
   let dataCheck = "";
   for (let i = 0; i < getSearches.length; i++) {
     dataCheck = getSearches[i];
@@ -168,15 +168,18 @@ var previousSearches = function () {
 
   // saveSearches();
   previous.innerHTML = "";
+  getSearches = getSearches.slice(0, 5);
 
   for (var i = 0; i < getSearches.length; i++) {
     search = getSearches[i];
+
     previousBtnEl = createItem("button", "btn btn-secondary previousList");
     previousBtnEl.innerHTML = search;
     previousBtnEl.setAttribute("cityName", search);
     $(previous).append(previousBtnEl);
   }
 };
+
 //  function to get previous city search name and rerun
 function searchHistory(e) {
   var button = e.target;
@@ -202,7 +205,6 @@ function searchHistory(e) {
   });
 }
 
-// document.onload = previousSearches();
 document.onload = previousSearches();
 
 // getWeather();
