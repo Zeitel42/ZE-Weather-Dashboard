@@ -23,17 +23,19 @@
                 <h2>Search for a City:</h2>
                 <form>
                     <label for="input">
-                        <input type="text" id="userInput" value="Raleigh">
+                        <input type="text" id="userInput" placeholder="Enter a city">
                     </label>
                     <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
                 </form>
                 <div class="card previous-searches">
                     <!-- <button class="btn btn-secondary"></button> -->
+                    <button type="button" id="clear-history" onclick=clearHistory()>Clear History</button>
+
                 </div>
             </div>
 
         </div>
-        <div class="col-8 display-city">
+        <div class="col-8 display-city" onload="getLonLat()">
             <div>
                 <div class="current-city card">
                     <div class="city-date">
@@ -48,9 +50,12 @@
                     </ul>
                 </div>
                 <h3>5-day forecast</h3>
+
                 <div class="col-xsm row fiveDayContainer">
                     <!-- 5 day forcast here created in js -->
+
                 </div>
+
             </div>
         </div>
     </main>

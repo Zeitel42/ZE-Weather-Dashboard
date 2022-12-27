@@ -6,6 +6,10 @@
 }
 
 /* previous search buttons  */
+#clear-history{
+    margin-top: 250px;
+    position:fixed;
+}
 .previous-searches{
     width: 100%;
     border-top: .5px solid black;
@@ -71,3 +75,4 @@
     background-color: red;
     border-radius: 10%;
 }
+
