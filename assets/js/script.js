@@ -2,6 +2,7 @@
 var header = document.querySelector(".header-title");
 var searchBtn = document.querySelector("#searchBtn");
 var userInput = document.querySelector("#userInput");
+var displayCity = document.querySelector(".display-city");
 var previous = document.querySelector(".previous-searches");
 var currentCity = document.querySelector(".current-city");
 var currentIcon = document.querySelector("#currentIcon");
@@ -11,6 +12,7 @@ var wind = document.querySelector("#wind");
 var humidity = document.querySelector("#humidity");
 var uvi = document.querySelector("#uvi");
 var fiveDayContainer = document.querySelector(".fiveDayContainer");
+var fiveDayBlock = document.querySelector(".fiveDayBlock");
 
 // global variables
 var lat;
@@ -38,7 +40,9 @@ var getLonLat = function (event) {
   }
 
   var userInputEl = userInput.value;
-
+  if (!userInputEl) {
+    userInputEl = "Raleigh";
+  }
   var apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     userInputEl +
@@ -55,9 +59,12 @@ var getLonLat = function (event) {
     }
   });
 };
-
+//display current city card
+displayCity.style.display = "none";
 // function call api to get info
 var getWeather = function (city) {
+  displayCity.style.display = "block";
+
   if (!userInput.value) {
   }
   // city = "Raleigh";
@@ -103,10 +110,11 @@ var getWeather = function (city) {
     }
   });
 };
-
+fiveDayBlock.style.display = "none";
 //function to display five day forecast
 var fiveDay = function () {
   fiveDayContainer.innerHTML = "";
+  fiveDayBlock.style.display = "block";
   // console.log(daily);
   for (var i = 1; i < 6; i++) {
     var forecastDate = new Date(daily[i].dt * 1000).toLocaleDateString({
@@ -122,15 +130,16 @@ var fiveDay = function () {
     var iconUrl = "https://openweathermap.org/img/wn/" + icon + ".png";
 
     // create elements
-    var divEl = createItem("div", "col-xs divCard fiveDayClass");
-    var dayDate = createItem("h5", "dayDate");
+    var divEl = createItem("div", "fiveDayClass");
+    var dayDate = createItem("div", "dayDate");
     dayDate.innerHTML = forecastDate;
     var iconImg = createItem("img", "iconImg");
     iconImg.setAttribute("src", iconUrl);
-    iconImg.style.width = "75px";
+    iconImg.style.width = "30%";
     var ulListEl = createItem("ul", "ulList");
     ulListEl.style.listStyle = "none";
-    ulListEl.style.paddingLeft = "0px";
+    // ulListEl.style.paddingLeft = "0px";
+
     var listItemA = createItem("li", "listItem");
     listItemA.innerHTML = temp;
     var listItemB = createItem("li", "listItem");
@@ -147,13 +156,20 @@ var fiveDay = function () {
   }
 };
 
+currentCity.style.display = "none";
+
 //function to create buttons of previously searched cities from localStorage
 var previousSearches = function () {
+  currentCity.style.display = "block";
+
   var saveSearches = function () {
     localStorage.setItem("searches", JSON.stringify(getSearches));
   };
+
   var getSearches = JSON.parse(localStorage.getItem("searches")) || [];
-  // getSearches = getSearches.slice(0, 5);
+  if (getSearches.length >= 4) {
+    getSearches = getSearches.slice(0, 5);
+  }
   let dataCheck = "";
   for (let i = 0; i < getSearches.length; i++) {
     dataCheck = getSearches[i];
@@ -168,8 +184,9 @@ var previousSearches = function () {
 
   // saveSearches();
   previous.innerHTML = "";
-  getSearches = getSearches.slice(0, 5);
-
+  if (getSearches.length >= 4) {
+    getSearches = getSearches.slice(0, 5);
+  }
   for (var i = 0; i < getSearches.length; i++) {
     search = getSearches[i];
 
