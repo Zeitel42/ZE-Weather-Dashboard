@@ -40,6 +40,7 @@
 /* current city  */
 .city{
     width: 75%;
+    min-height: 380px;
 }
 .display-city {
     width: 100%;
@@ -48,6 +49,7 @@
     width: 100%;
     float: left;
     padding-left: 10px;
+    min-height: 380px;
 }
 .current-city ul {
     list-style: none;
