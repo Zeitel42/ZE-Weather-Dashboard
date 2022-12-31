@@ -140,7 +140,12 @@ ul {
     padding: 5px;
     color: white;
 }
-
+.dayDate{
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
 .fiveDayClass {
     display: flex;
     justify-content: center;
