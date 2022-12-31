@@ -6,7 +6,13 @@
     color: white;
     text-align: center;
 }
-/* Search Form Card */
+
+.display-search-city{
+    width:100%;
+    padding: 20px;
+    margin: 10px;
+}
+/* Search Form */
 
 .search-form{
     width: 25%;
@@ -17,7 +23,71 @@
 #searchBtn{
     width: 100%;
     background-image: linear-gradient(15deg, #b0b6ec 0%, #0f1cce 100%);
+    color: white;
 }
+
+/* current city  */
+
+.current-city{
+    background: none;
+}
+
+.city-clear{
+    width: 74%;
+    float: left;
+    padding-left: 5px;
+    margin: 5px;
+    background-image: url("../images/clear.jpg"); 
+    background-size: cover;
+    border-radius: .25rem;
+}
+.city-clouds{
+    width: 74%;
+    float: left;
+    padding-left: 5px;
+    margin: 5px;
+    background-image: url("../images/clouds.jpg"); 
+    background-size: cover;
+    border-radius: .25rem;
+}
+.city-rain{
+    width: 74%;
+    float: left;
+    padding-left: 5px;
+    margin: 5px;
+    background-image: url("../images/rain.jpg"); 
+    background-size: cover;
+    border-radius: .25rem;
+    color: white;
+}
+.city-snow{
+    width: 74%;
+    float: left;
+    padding-left: 5px;
+    margin: 5px;
+    background-image: url("../images/snow.jpg"); 
+    background-size: cover;
+    border-radius: .25rem;
+}
+.city-thunderstorm{
+    width: 74%;
+    float: left;
+    padding-left: 5px;
+    margin: 5px;
+    background-image: url("../images/thunderstorm.jpg"); 
+    background-size: cover;
+    border-radius: .25rem;
+}
+.city-wind{
+    width: 74%;
+    float: left;
+    padding-left: 5px;
+    margin: 5px;
+    background-image: url("../images/wind.jpg");
+    border-radius: .25rem;
+    background-size: cover;
+}
+
 /* previous search buttons  */
 /* #clear-history{
     margin-top: 250px;
@@ -37,21 +107,7 @@
 
 
 
-/* current city  */
-.city{
-    width: 75%;
-    min-height: 380px;
-}
-.display-city {
-    width: 100%;
-}
-.current-city {
-    width: 100%;
-    float: left;
-    padding-left: 10px;
-    min-height: 380px;
-}
-.current-city ul {
+ul {
     list-style: none;
     padding-left: 0px;
 }
@@ -63,15 +119,18 @@
 
 /* 5-day forecast */
 .fiveDayBlock{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
     background-image: linear-gradient(15deg, #b0b6ec 0%, #0f1cce 100%);
-width: 100%;
-border-radius: 1rem;
+    width: 100%;
+    border-radius: .25rem;
 }
-.fiveDayContainer div{
+.fiveDayContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-grow: 1;
 
 }
@@ -79,6 +138,7 @@ border-radius: 1rem;
     width: 100%;
     margin: 10px;
     padding: 5px;
+    color: white;
 }
 
 .fiveDayClass {
@@ -90,7 +150,7 @@ border-radius: 1rem;
     padding: 5px 15px 15px 2px;
     margin: 5px;
     width: 18%;
-    border-radius: 1rem;
+    border-radius: .25rem;
 }
 
 /* color code for uvi */
@@ -112,40 +172,88 @@ border-radius: 1rem;
     background-color: red;
     border-radius: 10%;
 }
-.row{
-    margin: 10px;
-}
+
 /* @media queries */
+/* Small devices (phones, 762px and down) */
+
+@media only screen and (max-width: 762px) {
+    .search-form{
+        width: 24%;
+    }
+    .city-clear{
+        width: 74%;
+    }
+    .city-clouds{
+        margin: 5px;
+    }
+    .city-rain{
+        margin: 5px;
+    }
+    .city-snow{
+        margin: 5px;
+    }
+    .city-drizzle{
+        margin: 5px;
+    }
+    .city-thunderstorm{
+        margin: 5px;
+    }
+    .city-wind{
+        margin: 5px;
+    }
+   
+    /* .fiveDayContainer{
+        width: 100%;
+    } */
+    .fiveDayClass{
+        width:30%;
+        justify-content: space-evenly;
+    }
+
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .search-form{
         width: 100%;
     }
-    .fiveDayContainer div{
+    .city-clear{
         width: 100%;
+        margin: 5px;
     }
-    .fiveDayClass{
-        width:100%
-    }
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    /* .search-form{
+    .city-clouds{
         width: 100%;
+        margin: 5px;
     }
-    .fiveDayClass{
+    .city-rain{
+        width: 100%;
+        margin: 5px;
+    }
+    .city-snow{
+        width: 100%;
+        margin: 5px;
+    }
+    .city-drizzle{
+        width: 100%;
+        margin: 5px;
+    }
+    .city-thunderstorm{
+        width: 100%;
+        margin: 5px;
+    }
+    .city-wind{
+        width: 100%;
+        margin: 5px;
+    }
+   
+    /* .fiveDayContainer div{
         width: 100%;
     } */
+    .fiveDayClass{
+        width: 80%;
+        justify-content: center;
+    }
+
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}

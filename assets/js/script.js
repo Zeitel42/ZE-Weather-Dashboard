@@ -4,7 +4,7 @@ var searchBtn = document.querySelector("#searchBtn");
 var userInput = document.querySelector("#userInput");
 var displayCity = document.querySelector(".display-city");
 var previous = document.querySelector(".previous-searches");
-var currentCity = document.querySelector(".current-city");
+var currentCity = document.querySelector(".city");
 var currentIcon = document.querySelector("#currentIcon");
 var cityName = document.querySelector("#name");
 var temp = document.querySelector("#temp");
@@ -60,10 +60,10 @@ var getLonLat = function (event) {
   });
 };
 //display current city card
-displayCity.style.display = "none";
+currentCity.style.display = "none";
 // function call api to get info
 var getWeather = function (city) {
-  displayCity.style.display = "block";
+  currentCity.style.display = "block";
 
   if (!userInput.value) {
   }
@@ -80,6 +80,7 @@ var getWeather = function (city) {
       response.json().then(function (data) {
         // console.log(data.daily);
         daily = data.daily;
+        var description = data.current.weather[0]["main"];
         var icon = data.current.weather[0]["icon"];
         var iconUrl = "https://openweathermap.org/img/w/" + icon + ".png";
         var iconAdd = currentIcon.setAttribute("src", iconUrl);
@@ -94,6 +95,7 @@ var getWeather = function (city) {
         var uviCurrent = createItem("span", "uvi-current");
         uviCurrent.innerHTML = data.current.uvi;
         uvi.appendChild(uviCurrent);
+        //uvi for style
         if (data.current.uvi <= 2) {
           uviCurrent.className = "uvi-good";
         } else if (data.current.uvi > 2 && data.current.uvi <= 5) {
@@ -103,6 +105,23 @@ var getWeather = function (city) {
         } else {
           uviCurrent.className = "uvi-very-high";
         }
+        // current description for style
+        if (description == "Clear") {
+          currentCity.className = "city-clear";
+        } else if (description == "Clouds") {
+          currentCity.className = "city-clouds";
+        } else if (description == "Drizzle") {
+          currentCity.className = "city-drizzle";
+        } else if (description == "Rain") {
+          currentCity.className = "city-rain";
+        } else if (description == "Snow") {
+          currentCity.className = "city-snow";
+        } else if (description == "Thunderstorm") {
+          currentCity.className = "city-thunderstorm";
+        } else {
+          currentCity.className = "city-wind";
+        }
+
         userInput.value = "";
 
         fiveDay();
